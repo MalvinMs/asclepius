@@ -1,0 +1,30 @@
+runtime: nodejs18 # Sesuaikan jika runtime berbeda
+instance_class: F2 # Atur instance sesuai kebutuhan
+
+handlers:
+  - url: /favicon\.png
+    static_files: favicon.png
+    upload: favicon.png
+
+  - url: /images/(.*)
+    static_files: src/images/\1
+    upload: src/images/(.*)
+
+  - url: /scripts/(.*)
+    static_files: src/scripts/\1
+    upload: src/scripts/(.*)
+
+  - url: /styles/(.*)
+    static_files: src/styles/\1
+    upload: src/styles/(.*)
+
+  - url: /
+    static_files: index.html
+    upload: index.html
+
+  - url: /(.*)
+    static_files: \1
+    upload: (.*)
+
+error_handlers:
+  - file: index.html # Tampilkan halaman utama jika terjadi error
